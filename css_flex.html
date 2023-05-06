@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Document</title>
     
     <style>
@@ -16,7 +17,7 @@
         }
         .menu{
             background-color: azure;
-            height: 60px;
+            height: 60px; 
             border: 5px solid black;
             position: sticky;/*ให้เมนูเลื่อนตาม ต้องกำหนด top,left 0px,width 100%*/
             top: 0px;
@@ -30,22 +31,29 @@
         .menu>ul>li{
             float: left;
         }
+        .menu>ul>li.menu_right{
+            float: right; /*ชิดขวา */
+            margin-right:  20px; 
+        }
         .menu>ul>li:hover{
            background-color: orange;
         }
         .menu>ul>li>a{
             float: left;
             display: block;
-         
             padding: 10px;
             margin: 5px;
             color: black;
             text-decoration: none; /*ไม่ให้มีเส้นใต้ */
             
         }
-        .menu>ul>li.menu_right{
-            float: right; /*ชิดขวา */
-            margin-right:  20px; 
+        
+        .hamberger_menu{
+            font-size: 30pt;
+            display: none;
+        }
+        .vertical_menu{
+            display: none;
         }
         .header{
             background-color: aqua;
@@ -54,6 +62,46 @@
         }
         .content_mother{
             background-color: lightgreen;
+            display: flex;/*ทำให้แบ่งเป็น 3 ช่อง*/
+        }
+        @media screen and (max-width:500px){
+            .content_mother{ /*เมื่อหน้าจอน้อยกว่า 500px ให้ content_mother เรืียงเป็นแนวตั้ง */
+                flex-direction: column;
+            } 
+            .hamberger_menu{
+                display: block;
+                padding-left: 20px;
+            }
+            .horizontal_menu{
+                display: none;
+            }
+            .vertical_menu>li{
+            float: none;
+            display: block;
+            
+            }
+            .menu>ul>li{
+            float: none;
+            }
+            .vertical_menu{
+                position: fixed;
+                background-color: azure;
+                padding: 5px;
+                border: 5px solid black;
+                
+            }
+            .vertical_menu>li>a:hover{
+           background-color: orange;
+           border: 5px solid black;
+        }
+            
+        }
+        .content{
+            flex: 1; /*ทำให้แบ่งเป็น 3 ช่อง*/
+            font-size: 40pt;
+            text-align: center;
+            color: white;
+            margin: 15px;
         }
         .content1{
             background-color: rgb(224, 123, 123);
@@ -69,11 +117,39 @@
         }
         .lower_conten1{
             background-color: chocolate;
-            height: 900;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-content: center;
+        }
+        .item{
+            /* flex: 1;  */
+            background-color: deeppink;
+            margin: 10px;
+            text-align: center;
+            font-size: 50pt;
+            width: 150px;
+            color: white;
+            padding: 30px;
+
         }
         .lower_conten2{
             background-color: darkgoldenrod;
-            height: 600px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-content: center;
+        }
+        .item2{
+            background-color:darkgray;
+            margin: 10px;
+            text-align: center;
+            font-size: 50pt;
+            width: 150px;
+            color: white;
+            padding: 30px;
+            flex: 1;
+            
         }
         .maps{
             background-color: darkred;
@@ -87,28 +163,61 @@
 </head>
 <body>
     <div class="menu">
-        <ul>
+        <ul class="horizontal_menu">
             <li><a href="#">หน้าแรก</a></li>
             <li><a href="#">บ้านเดี่ยว</a></li>
             <li><a href="#">คอนโด</a></li>
             <li><a href="#">ขายบ้าน</a></li>
             <li class="menu_right"><a href="#">เข้าสู่ระบบ</a></li>
         </ul>
-
+        <a class="hamberger_menu" onclick="openmenu()" ><i class="fa fa-bars"></i></a>
+        <ul class="vertical_menu">
+            <li><a href="#">หน้าแรก</a></li>
+            <li><a href="#">บ้านเดี่ยว</a></li>
+            <li><a href="#">คอนโด</a></li>
+            <li><a href="#">ขายบ้าน</a></li>
+            <li><a href="#">เข้าสู่ระบบ</a></li>
         </ul>
     </div>
     <div class="header">
         <h1>SIRISAK</h1>
     </div>
     <div class="content_mother">
-        <div class="content1"></div>
-        <div class="content2"></div>
-        <div class="content3"></div>
+        <div class="content content1">1</div>
+        <div class="content content2">2</div>
+        <div class="content content3">3</div>
     </div>
-    <div class="lower_conten1"></div>
-    <div class="lower_conten2"></div>
+    <div class="lower_conten1">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+        <div class="item">6</div>
+        <div class="item">7</div>
+        <div class="item">8</div>
+        <div class="item">9</div>
+        <div class="item">10</div>
+        <div class="item">11</div>
+        <div class="item">12</div>
+    </div>
+    <div class="lower_conten2">
+        <div class="item2">1</div>
+        <div class="item2">2</div>
+    </div>
     <div class="maps"></div>
     <div class="footer"></div>
-    
+    <script>
+        function openmenu(){
+            let menu = document.getElementsByClassName("vertical_menu")[0];
+            if(menu.style.display == "block")
+            {
+                menu.style.display = "none"
+            }else{
+                menu.style.display = "block"
+            }
+             
+        }
+    </script>
 </body>
 </html>

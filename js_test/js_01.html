@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="main">
+        <button onclick="start()">กด1</button>
+        <button onclick="start2()">กด2</button>
+        <button onclick="start3()">กด3</button>
+    </div>
+    <script>
+        const x = " สวัสดี "
+        //alert("hello"+x); แส้ดงกล่องข้อความ
+        console.log("hello");
+        console.log("%c HELLO","ont-size:25pt;");
+        function start(){
+            console.log("show start1")
+        }
+        let start2 =function(){
+            console.log("show start2")
+        }
+        let start3 =() =>{
+            console.log("show start3")
+            let test = document.createElement('div')
+            test.style.backgroundColor = 'red';
+            test.innerHTML = "HELLO";
+            test.style.marginTop = '15px';
+            test.style.fontSize = '50pt';
+            test.style.padding = '10px';
+    
+            let x_main = document.getElementsByClassName('main')[0];
+            x_main.append(test);
+
+        }
+    </script>
+</body>
+</html>
